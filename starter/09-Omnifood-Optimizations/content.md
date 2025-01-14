@@ -129,7 +129,7 @@ Recipe directory
 Help center
 Privacy & terms
 
-######
+# to do
 
 ## Sections
 
@@ -139,6 +139,6 @@ Privacy & terms
 - How it works
 - Meals (and list of diets)
 - Testimonials + gallery
-- Pricing + features
+- pricing + features
 - CTA
 - Footer

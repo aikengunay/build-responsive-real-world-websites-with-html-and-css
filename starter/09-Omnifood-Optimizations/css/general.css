@@ -1,62 +1,75 @@
-/*
---- 01 TYPOGRAPHY SYSTEM
+/* *********************** */
+/* OBSERVATION */
+/* *********************** */
+/* 
+OBSERVATION:
+  margin is used for creating space between components
+  gap is also used when need be
 
-- Font sizes (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-
-- Font weights
-Default: 400
-Medium: 500
-Semi-bold: 600
-Bold: 700
-
-- Line heights
-Default: 1
-Small: 1.05
-Medium: 1.2
-Paragraph default: 1.6
-Large: 1.8
-
-- Letter spacing
--0.5px
-0.75px
-
---- 02 COLORS
-
-- Primary: #e67e22
-- Tints:
-#fdf2e9
-#fae5d3
-#eb984e
-
-- Shades: 
-#cf711f
-#45260a
-
-- Accents:
-- Greys
-
-#888
-#767676 (lightest grey allowed on #fff)
-#6f6f6f (lightest grey allowed on #fdf2e9)
-#555
-#333
-
---- 05 SHADOWS
-
-0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-
---- 06 BORDER-RADIUS
-
-Default: 9px
-Medium: 11px
-
---- 07 WHITESPACE
-
-- Spacing system (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+  padding is used to add more space inside of the container of each section. such as per each section there is a vertical padding of 96 pixel. while the layout section/specific content is implemented with a horizontal padding for when the viewport gets smaller in width to add space
 */
 
+/* *********************** */
+/* DESIGN SYSTEM */
+/* *********************** */
+/*
+01 TYPOGRAPHY SYSTEM
+  font sizes (px):
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  font weights:
+  Default: 400
+  Medium 500
+  Semi-Bold 600
+  Bold 700
+
+  line heights:
+  Default: 1
+  small: 1.05
+  medium: 1.2
+  paragraph default: 1.6
+  large: 1.8
+
+  letter spacing
+  0.5px
+  0.75px
+
+02 COLORS
+  primary:
+  #e67e22
+
+  tints:
+  #fdf2e9
+  #fae5d3
+
+  shades:
+  #cf711f
+  #eb984e
+  #45260a
+
+  accents:
+
+  greys:
+  #888
+  #767676 (lightest gray allowed on #fff)
+  #6f6f6f [lightest gray allowed on #fdf2e9
+  #555
+  #333
+
+05 SHADOWS
+2.4rem 4.8rem rgba(0, 0, 0 , 0.075);
+
+06 BORDER-RADIUS
+  default: 9px
+  medium: 11px
+
+07 WHITESPACES
+  spacing system (px):
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+/*
+
+
+/* Global Reset */
 * {
   padding: 0;
   margin: 0;
@@ -65,28 +78,80 @@ Medium: 11px
 
 html {
   /* font-size: 10px; */
-
-  /* 10px / 16px = 0.625 = 62.5% */
-  /* Percentage of user's browser font-size setting */
+  /*  10px / 16px (default size) = 0.625 = 62.5 */
+  /* do this to respect users  . no matter what user change their font size, it will change back to 10px.*/
+  /* set it to percentage */
+  /* percentage of users browser font size setting */
   font-size: 62.5%;
+
+  /* all the elements that overflow the viewport in the x axis will be hidden*/
   overflow-x: hidden;
+
+  /* does not work on safari on 2021 */
+  /* scrolls smoothly when you press a link to direct you to a certain section */
+  /* scroll-behavior: smooth; */
 }
 
 body {
+  /* Initial body setup*/
   font-family: "Rubik", sans-serif;
   line-height: 1;
   font-weight: 400;
   color: #555;
 
-  /* Only works if there is nothing absolutely positioned in relation to body */
+  /* This is to hide the mobile navigation from the right side then go back later once click */
+  /* only works if there is nothing absolutely position in the relation to body */
+  /* all the elements that overflow the viewport in the x axis will be hidden*/
+  /* if you set the overflow to hide all like overflow:, it will not allow you to scroll because your it will only show the current viewport */
+  /* also put this to the html as well */
   overflow-x: hidden;
 }
 
-/**************************/
-/* GENRAL REUSABLE COMPONENTS */
-/**************************/
+/* *********************** */
+/* REVIEW  */
+/* *********************** */
+
+.section-parent-test {
+  /* the parent section controls the vertical padding */
+  /* this is where you put background color or image in this section, not on the child container */
+
+  /* 
+  you control the:
+    vertical padding
+    place background color or image
+  */
+  padding: 9.6rem 0;
+  /* background-color: orangered; */
+}
+
+.container-child-test {
+  /* the child container of the parent sectio (section-how and section-hero) controls the maxwidth and horizontal padding, while centering the container*/
+  /* 
+    you control the:
+      max-width
+      horizontal padding
+      center the container
+    */
+  /* the usual container size for web contents are between 1140px - 1200px (horizontal padding included)*/
+  /* 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+/* *********************** */
+/* GENERAL REUSABLE COMPONENTS */
+/* *********************** */
 
 .container {
+  /* the child container of the parent sectio (section-how and section-hero) controls the maxwidth and horizontal padding, while centering the container*/
+  /* 
+    you control the:
+      max-width
+      horizontal padding
+      center the container
+    */
+  /* the usual container size for web contents are between 1140px - 1200px (horizontal padding included)*/
   /* 1140px */
   max-width: 120rem;
   padding: 0 3.2rem;
@@ -97,14 +162,10 @@ body {
   display: grid;
   column-gap: 6.4rem;
   row-gap: 9.6rem;
-
   /* margin-bottom: 9.6rem; */
 }
 
-/* .grid:last-child {
-  margin-bottom: 0;
-} */
-
+/* will add this margin if the grid element is not the last child element in the parent container */
 .grid:not(:last-child) {
   margin-bottom: 9.6rem;
 }
@@ -121,21 +182,20 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* .grid--5-cols {
+.grid--5-cols {
   grid-template-columns: repeat(5, 1fr);
-} */
+}
 
 .grid--center-v {
   align-items: center;
 }
 
 .heading-primary,
-.heading-secondary,
-.heading-tertiary {
+.heading-secondary {
   font-weight: 700;
   color: #333;
   /* color: #45260a; */
-  /* color: #343a40; */
+  color: #343a40;
   letter-spacing: -0.5px;
 }
 
@@ -171,21 +231,19 @@ body {
 .btn:link,
 .btn:visited {
   display: inline-block;
-
   text-decoration: none;
   font-size: 2rem;
   font-weight: 600;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
 
-  /* Only necessary for .btn */
+  /* for btn */
   border: none;
   cursor: pointer;
   font-family: inherit;
 
-  /* Put transition on original "state" */
-  /* transition: background-color 0.3s; */
-  transition: all 0.3s;
+  /* put transition on the original state default button */
+  transition: all 300ms ease;
 }
 
 .btn--full:link,
@@ -209,29 +267,17 @@ body {
 .btn--outline:active {
   background-color: #fdf2e9;
 
-  /* border: 3px solid #fff; */
-
-  /* Trick to add border inside */
+  /* border: 3px solid white; */
   box-shadow: inset 0 0 0 3px #fff;
-}
-
-.btn--form {
-  background-color: #45260a;
-  color: #fdf2e9;
-  align-self: end;
-  padding: 1.2rem;
-}
-
-.btn--form:hover {
-  background-color: #fff;
-  color: #555;
 }
 
 .link:link,
 .link:visited {
-  display: inline-block;
   color: #e67e22;
+
+  /* the usual way to add a border bottom is first taking out the text decoration then add a border bottom to it to further customize  */
   text-decoration: none;
+  /* the currentColor is the current text color */
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
   transition: all 0.3s;
@@ -271,7 +317,7 @@ body {
   box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
 }
 
-/* HELPER/SETTINGS CLASSES */
+/* helper class to add some margin right to the btn--full */
 .margin-right-sm {
   margin-right: 1.6rem !important;
 }

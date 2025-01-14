@@ -14,7 +14,7 @@
       }
       .el--3 {
         background-color: green;
-        height: 150px;
+        height: 200px;
       }
       .el--4 {
         background-color: goldenrod;
@@ -36,10 +36,54 @@
         /* STARTER */
         font-family: sans-serif;
         background-color: #ddd;
-        font-size: 40px;
+        font-size: 32px;
         margin: 40px;
+        /* width: 1000px; */
 
         /* FLEXBOX */
+        display: flex;
+        /* vertically align property */
+        align-items: center;
+        /* horizontally align property */
+        justify-content: flex-start;
+        /* add space between elements */
+        gap: 10px;
+      }
+
+      .el {
+        /* default values 
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        */
+
+        /* the basis will based on the gap and the original basis will not be followed. so it will follow the optimal length */
+        /* flex-basis: 200px; */
+        /* whether the flexbox is allowed to shrink or still based it on what measurement I want, then select 0 to turn off shrinking */
+        /* flex-shrink: 0; */
+        /* fill up the element in the available space of the container*/
+        /* flex-grow: 1; */
+
+        /* shorthand */
+        /* flex grow : flex-shrink : flex-basis */
+        /* flex: 0 0 200px; */
+        flex: 1;
+      }
+
+      /* html */
+      .el--1 {
+        align-self: flex-start;
+      }
+
+      /* amazing */
+      .el--5 {
+        align-self: stretch;
+        order: -1;
+      }
+
+      /* learn */
+      .el--8 {
+        order: -1;
       }
     </style>
   </head>
@@ -50,9 +94,9 @@
       <div class="el el--3">CSS</div>
       <div class="el el--4">are</div>
       <div class="el el--5">amazing</div>
-      <div class="el el--6">languages</div>
+      <!-- <div class="el el--6">languages</div>
       <div class="el el--7">to</div>
-      <div class="el el--8">learn</div>
+      <div class="el el--8">learn</div> -->
     </div>
   </body>
 </html>

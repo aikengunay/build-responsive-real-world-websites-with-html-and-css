@@ -1,31 +1,32 @@
-/**************************/
+/* *********************** */
 /* HEADER */
-/**************************/
-
+/* *********************** */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fdf2e9;
 
-  /* Because we want header to be sticky later */
+  /* Because we want the header to be sticky later */
   height: 9.6rem;
   padding: 0 4.8rem;
+
+  position: relative;
 }
 
 .logo {
   height: 2.2rem;
 }
 
-/**************************/
+/* *********************** */
 /* NAVIGATION */
-/**************************/
+/* *********************** */
 
 .main-nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 4.8rem;
 }
 
 .main-nav-link:link,
@@ -35,7 +36,7 @@
   color: #333;
   font-weight: 500;
   font-size: 1.8rem;
-  transition: all 0.3s;
+  transition: all 300ms;
 }
 
 .main-nav-link:hover,
@@ -53,13 +54,38 @@
 
 .main-nav-link.nav-cta:hover,
 .main-nav-link.nav-cta:active {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
   background-color: #cf711f;
 }
 
-/**************************/
-/* HERO SECTION */
-/**************************/
+/* MOBILE */
+/* hide the close icon in the landing page for now until it is in mobile view */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
 
+  /* hide mobile nav until phone alyout */
+  display: none;
+}
+
+/* set the icon's dimension and properties */
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+/* hide the close icon in the landing page for now until it is in mobile view */
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* *********************** */
+/* HERO SECTION */
+/* *********************** */
 .section-hero {
   background-color: #fdf2e9;
   padding: 4.8rem 0 9.6rem 0;
@@ -97,17 +123,16 @@
 }
 
 .delivered-imgs img {
-  height: 4.8rem;
   width: 4.8rem;
+  height: 4.8rem;
   border-radius: 50%;
   margin-right: -1.6rem;
   border: 3px solid #fdf2e9;
 }
 
 .delivered-imgs img:last-child {
-  margin: 0;
+  margin-right: 0;
 }
-
 .delivered-text {
   font-size: 1.8rem;
   font-weight: 600;
@@ -118,10 +143,9 @@
   font-weight: 700;
 }
 
-/**************************/
-/* FEATURED IN SECTION */
-/**************************/
-
+/* *********************** */
+/* FEATURED IN SECITON */
+/* *********************** */
 .section-featured {
   padding: 4.8rem 0 3.2rem 0;
 }
@@ -130,7 +154,6 @@
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.75px;
-  font-weight: 500;
   text-align: center;
   margin-bottom: 2.4rem;
   color: #888;
@@ -143,17 +166,33 @@
 
 .logos img {
   height: 3.2rem;
+  /* add a filter to the image */
   filter: brightness(0);
   opacity: 50%;
 }
 
-/**************************/
+/* *********************** */
 /* HOW IT WORKS SECTION */
-/**************************/
-
+/* *********************** */
 .section-how {
+  /* the parent section controls the vertical padding */
+  /* this is where you put background color or image in this section, not on the child container */
+
+  /* 
+  you control the:
+    vertical padding
+    place background color or image
+  */
   padding: 9.6rem 0;
+  /* background-color: orangered; */
 }
+
+/* TEST */
+/* .section-how div div {
+  padding: 100px;
+  font-size: 50px;
+  background-color: white;
+} */
 
 .step-number {
   font-size: 8.6rem;
@@ -169,7 +208,6 @@
 
 .step-img-box {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,7 +217,9 @@
 .step-img-box::after {
   content: "";
   display: block;
+
   border-radius: 50%;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -189,8 +229,9 @@
 .step-img-box::before {
   width: 60%;
   /* height: 60%; */
-
-  /* 60% of parent's width */
+  /* 60% of parent width */
+  /* this will make it a square */
+  /* making the height 60% doesnt work so a workaround is having a padding bottom of 60% */
   padding-bottom: 60%;
 
   background-color: #fdf2e9;
@@ -198,21 +239,19 @@
 }
 
 .step-img-box::after {
-  width: 45%;
-  padding-bottom: 45%;
+  width: 50%;
+  padding-bottom: 50%;
   background-color: #fae5d3;
   z-index: -1;
 }
 
 .step-img {
   width: 35%;
-  /* z-index: 10; */
 }
 
-/**************************/
+/* *********************** */
 /* MEALS SECTION */
-/**************************/
-
+/* *********************** */
 .section-meals {
   padding: 9.6rem 0;
 }
@@ -220,7 +259,9 @@
 .meal {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
+  /* this hides the image going on the top so the border can be seen of the container */
   overflow: hidden;
+
   transition: all 0.4s;
 }
 
@@ -238,7 +279,6 @@
   display: flex;
   gap: 0.4rem;
 }
-
 .tag {
   display: inline-block;
   padding: 0.4rem 0.8rem;
@@ -252,15 +292,17 @@
 .tag--vegetarian {
   background-color: #51cf66;
 }
+
 .tag--vegan {
   background-color: #94d82d;
 }
+
 .tag--paleo {
   background-color: #ffd43b;
 }
 
 .meal-title {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 3.2rem;
@@ -268,6 +310,7 @@
 
 .meal-attributes {
   list-style: none;
+
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -281,8 +324,8 @@
 }
 
 .meal-icon {
+  width: 2, 4rem;
   height: 2.4rem;
-  width: 2.4rem;
   color: #e67e22;
 }
 
@@ -295,21 +338,19 @@
   font-size: 1.8rem;
 }
 
-/**************************/
-/* TESTIMONIALS SECTION */
-/**************************/
+/* *********************** */
+/* TESTIMONIAL SECTION */
+/* *********************** */
 
 .section-testimonials {
   background-color: #fdf2e9;
   display: grid;
-  grid-template-columns: 55fr 45fr;
+  grid-template-columns: 0.55fr 0.45fr;
   align-items: center;
 }
-
 .testimonials-container {
   padding: 9.6rem;
 }
-
 .testimonials {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -319,6 +360,7 @@
 
 .testimonial-img {
   width: 6.4rem;
+  /* make border round */
   border-radius: 50%;
   margin-bottom: 1.2rem;
 }
@@ -337,61 +379,58 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* make image flexible of 100% width  */
   gap: 1.6rem;
   padding: 1.6rem;
 }
-
 .gallery-item {
+  /* it clips the content of this frame */
   overflow: hidden;
 }
-
 .gallery-item img {
   display: block;
   width: 100%;
-  transition: all 0.4s;
+  transition: all 400ms;
 }
 
 .gallery-item img:hover {
   transform: scale(1.1);
 }
 
-/**************************/
-/* MEALS SECTION */
-/**************************/
+/* *********************** */
+/* PRICING SECTION */
+/* *********************** */
 
 .section-pricing {
   padding: 9.6rem 0;
 }
 
-.princing-plan {
+.pricing-plan {
   border-radius: 11px;
-
   width: 75%;
 }
 
-.princing-plan--starter {
+.pricing-plan--starter {
   justify-self: end;
   border: 2px solid #fdf2e9;
   padding: 4.6rem;
 }
 
-.princing-plan--complete {
+.pricing-plan--complete {
   background-color: #fdf2e9;
   padding: 4.8rem;
   position: relative;
   overflow: hidden;
 }
 
-.princing-plan--complete::after {
+.pricing-plan--complete::before {
   content: "Best value";
   position: absolute;
   top: 6%;
   right: -18%;
-
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #333;
   background-color: #ffd43b;
   padding: 0.8rem 8rem;
   transform: rotate(45deg);
@@ -426,11 +465,11 @@
 
 .plan-text {
   font-size: 1.6rem;
-  line-height: 1.6;
+  line-height: 1.8rem;
   color: #6f6f6f;
 }
 
-.plan-sing-up {
+.plan-sign-up {
   text-align: center;
   margin-top: 4.8rem;
 }
@@ -445,8 +484,8 @@
   color: #e67e22;
   height: 3.2rem;
   width: 3.2rem;
-  background-color: #fdf2e9;
   margin-bottom: 3.2rem;
+  background-color: #fdf2e9;
   padding: 1.6rem;
   border-radius: 50%;
 }
@@ -463,26 +502,23 @@
   line-height: 1.8;
 }
 
-/**************************/
+/* *********************** */
 /* CTA SECTION */
-/**************************/
+/* *********************** */
 
 .section-cta {
-  /* top / right / bottom / left */
-  /* padding: 9.6rem 0 12.8rem 0; */
-
-  /* top / horizontal / left */
   padding: 4.8rem 0 12.8rem;
 }
 
 .cta {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  /* background-color: #e67e22; */
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  background-color: #e67e22;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
 
   background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+
   overflow: hidden;
 }
 
@@ -492,7 +528,6 @@
 }
 
 .cta .heading-secondary {
-  /* color: #45260a; */
   color: inherit;
   margin-bottom: 3.2rem;
 }
@@ -533,9 +568,10 @@
   width: 100%;
   padding: 1.2rem;
   font-size: 1.8rem;
+  /* inherit the font family from this html */
+  border: none;
   font-family: inherit;
   color: inherit;
-  border: none;
   background-color: #fdf2e9;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -545,14 +581,26 @@
   color: #aaa;
 }
 
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
 .cta *:focus {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
 
-/**************************/
-/* FOOTER */
-/**************************/
+/* *********************** */
+/* FOOTER SECTION */
+/* *********************** */
 
 .footer {
   padding: 12.8rem 0;
@@ -583,7 +631,6 @@
   height: 2.4rem;
   width: 2.4rem;
 }
-
 .copyright {
   font-size: 1.4rem;
   line-height: 1.6;
@@ -609,6 +656,7 @@
 
 .footer-nav {
   list-style: none;
+  /* use flex for smaller components such as adding column gap to row of elements */
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -619,7 +667,7 @@
   text-decoration: none;
   font-size: 1.6rem;
   color: #767676;
-  transition: all 0.3s;
+  transition: all 300ms;
 }
 
 .footer-link:hover,
